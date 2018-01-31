@@ -31,7 +31,7 @@ public class EmaillistController {
 	
 		emaillistDao.insert(emailVo);
 		
-		return "/form";
+		return "redirect:/list";
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
