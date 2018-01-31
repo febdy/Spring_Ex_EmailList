@@ -13,26 +13,26 @@
 	<p>입력한 정보 내역입니다.</p>
 	<!-- 메일정보 리스트 -->
 
-	<c:forEach items="${eList}" var="vo" varStatus="status">
+	<c:forEach items="${eList}" var="emailVo" varStatus="status">
 		<table border="1" cellpadding="5" cellspacing="2">
 			<tr>
 				<td align=right width="110">Last name:</td>
-				<td width="170">${vo.lastName}</td>
+				<td width="170">${emailVo.lastName}</td>
 			</tr>
 			<tr>
 				<td align=right>First name:</td>
-				<td>${vo.firstName}</td>
+				<td>${emailVo.firstName}</td>
 			</tr>
 			<tr>
 				<td align=right>Email address:</td>
-				<td>${vo.email}</td>
+				<td>${emailVo.email}</td>
 			</tr>
 		</table>
 		<br>
 	</c:forEach>
 
 	<p>
-		<a href="el?a=form">추가메일 등록</a>
+		<a href="/emaillist3/form">추가메일 등록</a>
 	</p>
 	<br>
 </body>
