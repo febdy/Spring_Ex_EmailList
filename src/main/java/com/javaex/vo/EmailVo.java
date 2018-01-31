@@ -1,6 +1,7 @@
 package com.javaex.vo;
 
 public class EmailVo {
+	private int no;
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -13,6 +14,14 @@ public class EmailVo {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getFirstName() {
@@ -41,7 +50,7 @@ public class EmailVo {
 
 	@Override
 	public String toString() {
-		return "EmailVo [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "EmailVo [no=" + no + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
-	
+
 }

@@ -11,7 +11,7 @@
 	<p>
 		메일 리스트에 가입하려면,<br> 아래 항목을 기입하고 submit 버튼을 클릭하세요.
 	</p>
-	<form action="add" method="get">
+	<form action="add" method="post">
 		Last name(성): <input type="text" name="lastName" value=""><br>
 		First name(이름): <input type="text" name="firstName" value=""><br>
 		Email address: <input type="text" name="email" value=""><br>
