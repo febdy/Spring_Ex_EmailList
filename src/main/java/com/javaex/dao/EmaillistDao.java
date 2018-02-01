@@ -8,17 +8,23 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javaex.vo.EmailVo;
 
+import oracle.jdbc.pool.OracleDataSource;
+
 @Repository
 public class EmaillistDao {
 
+	@Autowired
+	private OracleDataSource oracleDataSource = null;
+	
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
-
+		
 	public void insert(EmailVo vo) {
 		try {
 			// 1. JDBC 드라이버 (Oracle) 로딩
@@ -63,12 +69,7 @@ public class EmaillistDao {
 		EmailVo vo;
 		
 		try {
-			// 1. JDBC 드라이버 (Oracle) 로딩
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			// 2. Connection 얻어오기
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			conn = DriverManager.getConnection(url, "webdb", "webdb");
+			conn = oracleDataSource.getConnection();
 
 			// 3. SQL문 준비 / 바인딩 / 실행
 			String query = "SELECT no, last_name, first_name, email " +
@@ -87,8 +88,6 @@ public class EmaillistDao {
 				eList.add(vo);				
 			}
 
-		} catch (ClassNotFoundException e) {
-			System.out.println("error: 드라이버 로딩 실패 - " + e);
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} finally {
